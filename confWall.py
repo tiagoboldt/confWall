@@ -15,20 +15,19 @@ def writeFile(contents, name= 'index.html'):
 
 def getPhotoList(path = 'pics'):
 	pics = os.listdir( os.path.join(os.path.dirname(__file__), path) )
-	html = []
+	pics2 = []
 	for pic in pics:
 		if pic != '.README':
-			html.append('<img width="100%%" src="%s/%s" />'% (path, pic))
-	return ''.join(html)
+			pics2.append('"%s/%s"'% (path, pic))
+	return '[' + ','.join(pics2) + ']'
 
 def confWall():
 	html = readFile()
 	images = getPhotoList()
-	print images
 	newhtml = html.replace(
-			'<div class="slideshow"></div>', 
-			'<div class="slideshow">%s</div>' % images)
-	print newhtml
+			'<script></script>', 
+			'<script>images = %s;</script>' % images
+			)
 	writeFile(newhtml)
 
 if __name__ == '__main__':
