@@ -15,17 +15,15 @@ body {
 }
 
 .slideshow {
-	width: 66%;
+	width: 60%;
 	min-height: 100%;
 	float: left;
 }
 
-.pics img {  
+.slideshow img {  
 	padding: 15px;  
 	border:  1px solid #ccc;  
 	background-color: #eee;  
-	width:  200px; 
-	height: 200px; 
 	top:  0; 
 	left: 0;
 }
